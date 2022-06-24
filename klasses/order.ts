@@ -1,6 +1,4 @@
-import { KlassOptions } from '@kustomer/apps-server-sdk';
-
-export const order: KlassOptions = {
+export const order = {
   icon: 'shopify',
   color: '#64943E',
   metadata: {

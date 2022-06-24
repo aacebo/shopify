@@ -1,8 +1,13 @@
 import * as express from 'express';
-import { Shopify } from '@shopify/shopify-api';
+import Shopify from '@shopify/shopify-api';
 import { BadRequestError } from '@kustomer/apps-server-sdk';
 
-export const SHOP_REDIRECT: { [shop: string]: string } = { };
+export interface ShopAuthCache {
+  readonly redirectUri: string;
+  readonly org: string;
+}
+
+export const SHOP_AUTH: { [shop: string]: ShopAuthCache } = { };
 
 export function auth() {
   return async (
@@ -18,8 +23,15 @@ export function auth() {
       return next(new BadRequestError('redirectUri is a required query param'));
     }
 
+    if (!req.query.org) {
+      return next(new BadRequestError('org is a required query param'));
+    }
+
     const shop = `${req.query.shop}.myshopify.com`;
-    SHOP_REDIRECT[shop] = req.query.redirectUri.toString();
+    SHOP_AUTH[shop] = {
+      redirectUri: req.query.redirectUri.toString(),
+      org: req.query.org.toString()
+    }
 
     return res.redirect(await Shopify.Auth.beginAuth(
       req,

@@ -19,7 +19,7 @@ Shopify.Context.initialize({
   API_KEY: process.env.SHOPIFY_API_KEY,
   API_SECRET_KEY: process.env.SHOPIFY_API_SECRET,
   API_VERSION: ApiVersion.April22,
-  HOST_NAME: process.env.NODE_ENV === 'local' ? 'localhost' : 'shopify-sdk.glitch.me',
+  HOST_NAME: process.env.NODE_ENV === 'local' ? 'localhost' : 'shopify.onrender.com',
   HOST_SCHEME: process.env.NODE_ENV === 'local' ? 'http' : 'https',
   IS_EMBEDDED_APP: false,
   SCOPES: [
@@ -28,7 +28,7 @@ Shopify.Context.initialize({
   ]
 });
 
-const url = 'https://shopify-sdk.glitch.me';
+const url = 'https://shopify.onrender.com';
 const app = new KApp({
   app: pkg.name,
   version: pkg.version,
@@ -120,9 +120,10 @@ app.useCustomView('timeline', '/views/timeline', {
   state: 'open'
 });
 
-app.onHook('order-update', handlers.onOrderUpdate());
+app.onHook('order-create', handlers.onOrderCreate(app));
+app.onHook('order-update', handlers.onOrderUpdate(app));
 app.onAuth(handlers.auth());
-app.onAuthComplete(handlers.authComplete());
+app.onAuthComplete(handlers.authComplete(app));
 
 (async () => {
   try {

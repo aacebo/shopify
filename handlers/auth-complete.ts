@@ -1,10 +1,11 @@
 import * as express from 'express';
-import { Shopify } from '@shopify/shopify-api';
-import { UnauthorizedError } from '@kustomer/apps-server-sdk';
+import Shopify from '@shopify/shopify-api';
+import { Webhook } from '@shopify/shopify-api/dist/rest-resources/2022-04';
+import { KApp, UnauthorizedError } from '@kustomer/apps-server-sdk';
 
-import { SHOP_REDIRECT } from './auth';
+import { SHOP_AUTH } from './auth';
 
-export function authComplete() {
+export function authComplete(app: KApp) {
   return async (
     req: express.Request,
     res: express.Response,
@@ -17,15 +18,35 @@ export function authComplete() {
         req.query as any
       );
 
-      const redirectUri = SHOP_REDIRECT[session.shop];
-      delete SHOP_REDIRECT[session.shop];
+      const shopAuth = SHOP_AUTH[session.shop];
+      delete SHOP_AUTH[session.shop];
 
-      if (!redirectUri) {
+      if (!shopAuth) {
         return next(new UnauthorizedError('shop session not found'));
       }
 
-      return res.redirect(`${redirectUri}/app/channels-and-apps/settings/shopify`);
+      const existing = await Webhook.all({ session });
+      const baseUrl = `${app.options.url}/orgs/${shopAuth.org}/hooks`;
+
+      if (!existing.some(h => h.address === `${baseUrl}/order-create`)) {
+        const webhook = new Webhook({ session });
+        webhook.topic = 'orders/create';
+        webhook.address = `${baseUrl}/order-create`;
+        webhook.format = 'json';
+        await webhook.save();
+      }
+
+      if (!existing.some(h => h.address === `${baseUrl}/order-update`)) {
+        const webhook = new Webhook({ session });
+        webhook.topic = 'orders/updated';
+        webhook.address = `${baseUrl}/order-update`;
+        webhook.format = 'json';
+        await webhook.save();
+      }
+
+      return res.redirect(shopAuth.redirectUri);
     } catch (err) {
+      app.log.error(err);
       return next(err);
     }
   };
