@@ -19,7 +19,8 @@ Shopify.Context.initialize({
   API_KEY: process.env.SHOPIFY_API_KEY,
   API_SECRET_KEY: process.env.SHOPIFY_API_SECRET,
   API_VERSION: ApiVersion.April22,
-  HOST_NAME: 'shopify-sdk.glitch.me',
+  HOST_NAME: process.env.NODE_ENV === 'local' ? 'localhost' : 'shopify-sdk.glitch.me',
+  HOST_SCHEME: process.env.NODE_ENV === 'local' ? 'http' : 'https',
   IS_EMBEDDED_APP: false,
   SCOPES: [
     'read_orders',

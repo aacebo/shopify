@@ -16,10 +16,12 @@ export function authComplete(app: KApp) {
       );
 
       app.log.info(session);
+      app.log.info(req.query);
+      app.log.info(session.shop.split('.')[0]);
+
+      return res.redirect(`${app.baseUrls.web}/app/channels-and-apps/settings/shopify`);
     } catch (err) {
       return next(err);
     }
-
-    return res.redirect(`${app.baseUrls.web}/app/channels-and-apps/settings/shopify`);
   };
 }
