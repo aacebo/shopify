@@ -122,7 +122,7 @@ app.useCustomView('timeline', '/views/timeline', {
 
 app.onHook('order-update', handlers.onOrderUpdate());
 app.onAuth(handlers.auth());
-app.onAuthComplete(handlers.authComplete(app));
+app.onAuthComplete(handlers.authComplete());
 
 (async () => {
   try {

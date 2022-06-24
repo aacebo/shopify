@@ -1,8 +1,10 @@
 import * as express from 'express';
 import { Shopify } from '@shopify/shopify-api';
-import { KApp } from '@kustomer/apps-server-sdk';
+import { UnauthorizedError } from '@kustomer/apps-server-sdk';
 
-export function authComplete(app: KApp) {
+import { SHOP_REDIRECT } from './auth';
+
+export function authComplete() {
   return async (
     req: express.Request,
     res: express.Response,
@@ -15,11 +17,14 @@ export function authComplete(app: KApp) {
         req.query as any
       );
 
-      app.log.info(session);
-      app.log.info(req.query);
-      app.log.info(session.shop.split('.')[0]);
+      const redirectUri = SHOP_REDIRECT[session.shop];
+      delete SHOP_REDIRECT[session.shop];
 
-      return res.redirect(`${app.baseUrls.web}/app/channels-and-apps/settings/shopify`);
+      if (!redirectUri) {
+        return next(new UnauthorizedError('shop session not found'));
+      }
+
+      return res.redirect(`${redirectUri}/app/channels-and-apps/settings/shopify`);
     } catch (err) {
       return next(err);
     }
