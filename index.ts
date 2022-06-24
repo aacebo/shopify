@@ -19,7 +19,7 @@ Shopify.Context.initialize({
   API_KEY: process.env.SHOPIFY_API_KEY,
   API_SECRET_KEY: process.env.SHOPIFY_API_SECRET,
   API_VERSION: ApiVersion.April22,
-  HOST_NAME: process.env.NODE_ENV === 'local' ? 'localhost' : 'shopify.onrender.com',
+  HOST_NAME: process.env.NODE_ENV === 'local' ? 'localhost' : 'shopify-mgh2.onrender.com',
   HOST_SCHEME: process.env.NODE_ENV === 'local' ? 'http' : 'https',
   IS_EMBEDDED_APP: false,
   SCOPES: [
@@ -28,7 +28,7 @@ Shopify.Context.initialize({
   ]
 });
 
-const url = 'https://shopify.onrender.com';
+const url = 'https://shopify-mgh2.onrender.com';
 const app = new KApp({
   app: pkg.name,
   version: pkg.version,
