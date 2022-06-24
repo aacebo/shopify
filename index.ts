@@ -40,7 +40,16 @@ const app = new KApp({
   url,
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  roles: [],
+  roles: [
+    'org.user.customer.read',
+    'org.user.customer.write',
+    'org.user.kobject.write',
+    'org.permission.customer.read',
+    'org.permission.customer.create',
+    'org.permission.customer.update',
+    'org.permission.kobject.create',
+    'org.permission.kobject.kobject_*.create'
+  ],
   iconUrl: `${url}/assets/icon2.png`,
   env: 'qa',
   appDetails: {
@@ -131,6 +140,8 @@ app.onAuthComplete(handlers.authComplete(app));
       +(process.env.PORT || 80),
       process.env.NODE_ENV === 'local'
     );
+
+    app.log.info(await app.in('aacebo').getToken());
   } catch (err) {
     app.log.error(JSON.stringify(err, undefined, 2));
   }
