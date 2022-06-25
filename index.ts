@@ -43,12 +43,15 @@ const app = new KApp({
   roles: [
     'org.user.customer.read',
     'org.user.customer.write',
+    'org.user.kobject.read',
     'org.user.kobject.write',
     'org.permission.customer.read',
     'org.permission.customer.create',
     'org.permission.customer.update',
     'org.permission.kobject.create',
-    'org.permission.kobject.kobject_*.create'
+    'org.permission.kobject.update',
+    'org.permission.kobject.kobject_*.create',
+    'org.permission.kobject.kobject_*.update'
   ],
   iconUrl: `${url}/assets/icon2.png`,
   env: 'qa',
@@ -88,7 +91,7 @@ const app = new KApp({
   changelog
 });
 
-app.useKlass('order', klasses.order);
+app.useKlass('order', klasses.order.scheme);
 app.useCustomSettings(
   'Shopify',
   'The Shopify app integration allows you to connect all of your Shopify stores to your Kustomer org so that you can see all of your customer\'s purchases from the [Shopify Insight Card](https://help.kustomer.com/en_us/shopify-insight-card-B1qNbYNYI) and timeline. Learn how to connect your stores [here](https://support.kustomer.com/en_us/shopify-integration-rkei5NSL#Connecting).',
@@ -129,8 +132,8 @@ app.useCustomView('timeline', '/views/timeline', {
   state: 'open'
 });
 
-app.onHook('order-create', handlers.onOrderCreate(app));
-app.onHook('order-update', handlers.onOrderUpdate(app));
+app.onHook('order-create', handlers.onOrderCreateOrUpdate(app));
+app.onHook('order-update', handlers.onOrderCreateOrUpdate(app));
 app.onAuth(handlers.auth());
 app.onAuthComplete(handlers.authComplete(app));
 
