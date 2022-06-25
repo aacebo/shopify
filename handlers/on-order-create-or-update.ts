@@ -38,6 +38,7 @@ export function onOrderCreateOrUpdate(app: KApp) {
 
       if (!kobject) {
         kobject = await app.in(org).customers.createKObject(customer.id, 'order', {
+          externalId: order.id.toString(),
           title: `Order ${order.name} ${order.line_items?.length || 0} item(s) ordered for ${order.total_price}`,
           description: (order.line_items || []).map(li => li.title).join('\n'),
           custom: klasses.order.map(shop, order)
