@@ -4,7 +4,7 @@ import { Order } from '@shopify/shopify-api/dist/rest-resources/2022-04';
 
 import * as klasses from '../klasses';
 
-export function onOrderCreateOrUpdate(app: KApp) {
+export function onOrderUpdate(app: KApp) {
   return async (
     org: string,
     _query: AuthQuery,

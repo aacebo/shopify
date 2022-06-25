@@ -28,14 +28,6 @@ export function authComplete(app: KApp) {
       const existing = await Webhook.all({ session });
       const baseUrl = `${app.options.url}/orgs/${shopAuth.org}/hooks`;
 
-      if (!existing.some(h => h.address === `${baseUrl}/order-create`)) {
-        const webhook = new Webhook({ session });
-        webhook.topic = 'orders/create';
-        webhook.address = `${baseUrl}/order-create`;
-        webhook.format = 'json';
-        await webhook.save();
-      }
-
       if (!existing.some(h => h.address === `${baseUrl}/order-update`)) {
         const webhook = new Webhook({ session });
         webhook.topic = 'orders/updated';
