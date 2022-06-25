@@ -5,20 +5,8 @@
             function loadContext() {
                 // Kustomer.initialize is required for card visibility in the panel.
                 Kustomer.initialize(function(contextJSON) {
-                    var customer_attributes = contextJSON.customer.attributes;
-                    if (customer_attributes.emails.length) {
-                        var email = customer_attributes.emails[0].email;
-                        var a = document.createElement('a');
-                        var linkText = document.createTextNode("Google");
-                        a.appendChild(linkText);
-                        a.title = "Search google for information about the customer";
-                        a.href = "https://www.google.com/#q=" + encodeURIComponent(email);
-                        a.target = "_blank";
-                        document.getElementById("container").appendChild(a);
+                    if (contextJSON) {
                         Kustomer.resize();
-                    } else {
-                        // Closes the card if the customer has no email addresses.
-                        Kustomer.close();
                     }
                 });
             }

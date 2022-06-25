@@ -46,6 +46,8 @@ export function onOrderUpdate(app: KApp) {
       }
 
       // update kobject
+
+      app.log.info(`order ${order.name} updated`);
     } catch (err) {
       throw err;
     }
