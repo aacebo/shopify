@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "https://shopify-mgh2.onrender.com/views/settings/static/css/main.073c9b0a.css",
-    "main.js": "https://shopify-mgh2.onrender.com/views/settings/static/js/main.02f1d221.js",
+    "main.css": "https://shopify-mgh2.onrender.com/views/settings/static/css/main.137d9a2b.css",
+    "main.js": "https://shopify-mgh2.onrender.com/views/settings/static/js/main.8b741277.js",
     "static/js/787.7eefd9c3.chunk.js": "https://shopify-mgh2.onrender.com/views/settings/static/js/787.7eefd9c3.chunk.js",
-    "static/media/logo.svg": "https://shopify-mgh2.onrender.com/views/settings/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "https://shopify-mgh2.onrender.com/views/settings/index.html",
-    "main.073c9b0a.css.map": "https://shopify-mgh2.onrender.com/views/settings/static/css/main.073c9b0a.css.map",
-    "main.02f1d221.js.map": "https://shopify-mgh2.onrender.com/views/settings/static/js/main.02f1d221.js.map",
+    "main.137d9a2b.css.map": "https://shopify-mgh2.onrender.com/views/settings/static/css/main.137d9a2b.css.map",
+    "main.8b741277.js.map": "https://shopify-mgh2.onrender.com/views/settings/static/js/main.8b741277.js.map",
     "787.7eefd9c3.chunk.js.map": "https://shopify-mgh2.onrender.com/views/settings/static/js/787.7eefd9c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.02f1d221.js"
+    "static/css/main.137d9a2b.css",
+    "static/js/main.8b741277.js"
   ]
 }
