@@ -22,6 +22,7 @@ export function NewShopDialog(props: NewShopDialogProps) {
           variant='outlined'
           label='Shop Name'
           value={shop}
+          style={{ marginTop: '10px' }}
           onChange={(e) => setShop(e.target.value)}
           fullWidth
           autoFocus
