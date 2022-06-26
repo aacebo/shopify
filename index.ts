@@ -95,7 +95,7 @@ app.useKlass('order', klasses.order.scheme);
 app.useCustomSettings(
   'Shopify',
   'The Shopify app integration allows you to connect all of your Shopify stores to your Kustomer org so that you can see all of your customer\'s purchases from the [Shopify Insight Card](https://help.kustomer.com/en_us/shopify-insight-card-B1qNbYNYI) and timeline. Learn how to connect your stores [here](https://support.kustomer.com/en_us/shopify-integration-rkei5NSL#Connecting).',
-  '/views/settings'
+  '/views/settings/build'
 );
 
 app.useCustomView('customer-card', '/views/smartbar/customer', {
