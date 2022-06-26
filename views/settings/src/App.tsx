@@ -27,9 +27,12 @@ function App() {
         color='secondary'
         variant='outlined'
         onClick={() => {
-          window.Kustomer.command.run('shopify--create-order', { hello: 'world' }, () => {
+          window.Kustomer.command.run(
+            'shopify--create-order',
+            { body: { hello: 'world' } },
+            () => {
 
-          });
+            });
         }}
       >
         <AddIcon color='primary' />
