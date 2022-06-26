@@ -1,9 +1,9 @@
 .App {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
   justify-content: center;
-  background-color: var(--background-primary-color);
+  background-color: #fff;
   border-radius: 3px;
   padding: 30px;
 }
