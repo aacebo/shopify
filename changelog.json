@@ -4,5 +4,6 @@
   "0.0.2": "add order update and create",
   "0.0.3": "change url",
   "0.0.4": "add proper roles",
-  "0.0.5": "add find kobject for updates"
+  "0.0.5": "add find kobject for updates",
+  "0.0.6": "add order create"
 }

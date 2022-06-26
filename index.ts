@@ -133,6 +133,7 @@ app.useCustomView('timeline', '/views/timeline', {
 });
 
 app.onHook('order-update', handlers.onOrderUpdate(app));
+app.onCommand('create-order', handlers.onCreateOrder(app));
 app.onAuth(handlers.auth());
 app.onAuthComplete(handlers.authComplete(app));
 

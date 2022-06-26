@@ -22,6 +22,20 @@ function App() {
         Add Store
       </Button>
 
+      <Button
+        style={{ margin: 'auto' }}
+        color='secondary'
+        variant='outlined'
+        onClick={() => {
+          window.Kustomer.command.run('shopify--create-order', { hello: 'world' }, () => {
+
+          });
+        }}
+      >
+        <AddIcon color='primary' />
+        Add Order
+      </Button>
+
       <NewShopDialog
         open={newShopDialogOpen}
         onClose={(shop) => {
