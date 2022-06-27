@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:settings",
-    "build:settings": "npm --prefix=views/settings run build",
+    "build:settings": "npm --prefix=views/settings install && npm --prefix=views/settings run build",
     "start": "DEBUG=kapp* ts-node .",
     "start:local": "NODE_ENV=local DEBUG=kapp* ts-node ."
   },
