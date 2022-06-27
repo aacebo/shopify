@@ -30,8 +30,8 @@ function App() {
           window.Kustomer.command.run(
             'shopify_sdk.app.shopify_sdk--create-order',
             { body: { hello: 'world' } },
-            () => {
-
+            (_err: Error | null, res: any) => {
+              console.log(res);
             });
         }}
       >

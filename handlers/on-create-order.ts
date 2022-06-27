@@ -7,5 +7,6 @@ export function onCreateOrder(app: KApp) {
     data: any
   ) => {
     app.log.info(data);
+    return { john: 'doe' };
   };
 }
