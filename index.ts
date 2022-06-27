@@ -23,8 +23,8 @@ Shopify.Context.initialize({
   API_KEY: process.env.SHOPIFY_API_KEY,
   API_SECRET_KEY: process.env.SHOPIFY_API_SECRET,
   API_VERSION: ApiVersion.April22,
-  HOST_NAME: process.env.NODE_ENV === 'local' ? 'localhost' : 'shopify-mgh2.onrender.com',
-  HOST_SCHEME: process.env.NODE_ENV === 'local' ? 'http' : 'https',
+  HOST_NAME: process.env.BASE_URL.split('://')[1],
+  HOST_SCHEME: process.env.BASE_URL.split('://')[0],
   IS_EMBEDDED_APP: false,
   SCOPES: [
     'read_orders',
