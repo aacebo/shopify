@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=$BASE_URL/views/settings react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

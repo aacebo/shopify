@@ -7,6 +7,10 @@ import changelog from './changelog.json';
 import * as klasses from './klasses';
 import * as handlers from './handlers';
 
+if (!process.env.BASE_URL) {
+  throw new Error('baseUrl is required');
+}
+
 if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET) {
   throw new Error('clientId and clientSecret are required');
 }
@@ -28,7 +32,6 @@ Shopify.Context.initialize({
   ]
 });
 
-const url = 'https://shopify-mgh2.onrender.com';
 const app = new KApp({
   app: pkg.name,
   version: pkg.version,
@@ -37,7 +40,7 @@ const app = new KApp({
   dependencies: ['kustomer-^1.8.5'],
   default: false,
   system: false,
-  url,
+  url: process.env.BASE_URL,
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   roles: [
@@ -53,7 +56,7 @@ const app = new KApp({
     'org.permission.kobject.kobject_*.create',
     'org.permission.kobject.kobject_*.update'
   ],
-  iconUrl: `${url}/assets/icon2.png`,
+  iconUrl: `${process.env.BASE_URL}/assets/icon2.png`,
   env: 'qa',
   appDetails: {
     appDeveloper: {
@@ -80,12 +83,12 @@ const app = new KApp({
   Learn more about the integration in the [Kustomer Help Center](https://help.kustomer.com/en_us/shopify-integration-rkei5NSL).
   `,
   screenshots: [
-    `${url}/assets/screenshot-1.png`,
-    `${url}/assets/screenshot-2.png`,
-    `${url}/assets/screenshot-3.png`,
-    `${url}/assets/screenshot-4.png`,
-    `${url}/assets/screenshot-5.png`,
-    `${url}/assets/screenshot-6.png`,
+    `${process.env.BASE_URL}/assets/screenshot-1.png`,
+    `${process.env.BASE_URL}/assets/screenshot-2.png`,
+    `${process.env.BASE_URL}/assets/screenshot-3.png`,
+    `${process.env.BASE_URL}/assets/screenshot-4.png`,
+    `${process.env.BASE_URL}/assets/screenshot-5.png`,
+    `${process.env.BASE_URL}/assets/screenshot-6.png`,
   ],
   releaseNotesUrl: 'https://help.kustomer.com/en_us/shopify-release-notes-SJ1QLlQhI',
   changelog
