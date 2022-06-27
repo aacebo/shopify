@@ -35,7 +35,7 @@ function App() {
             });
         }}
       >
-        <AddIcon color='primary' />
+        <AddIcon color='secondary' />
         Add Order
       </Button>
 

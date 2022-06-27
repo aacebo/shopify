@@ -34,7 +34,9 @@
     <script>
       function loadContext() {
         // Kustomer.initialize is required for card visibility in the panel.
-        Kustomer.initialize(function(contextJSON) {
+        Kustomer.initialize({
+          userRoles: ['org.user']
+        }, function (contextJSON) {
           if (contextJSON) {
             Kustomer.resize();
           }
