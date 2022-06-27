@@ -9,7 +9,7 @@ export interface ShopAuthCache {
 
 export const SHOP_AUTH: { [shop: string]: ShopAuthCache } = { };
 
-export function auth() {
+export function onAuth() {
   return async (
     req: express.Request,
     res: express.Response,

@@ -3,9 +3,9 @@ import Shopify from '@shopify/shopify-api';
 import { Webhook } from '@shopify/shopify-api/dist/rest-resources/2022-04';
 import { KApp, UnauthorizedError } from '@kustomer/apps-server-sdk';
 
-import { SHOP_AUTH } from './auth';
+import { SHOP_AUTH } from './on-auth';
 
-export function authComplete(app: KApp) {
+export function onAuthComplete(app: KApp) {
   return async (
     req: express.Request,
     res: express.Response,
