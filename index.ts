@@ -140,6 +140,18 @@ app.onCommand('create-order', handlers.onCreateOrder(app));
 app.onAuth(handlers.onAuth());
 app.onAuthComplete(handlers.onAuthComplete(app));
 
+app.onInstall = (userId, orgId) => {
+  app.log.info(`installed ${userId} ${orgId}`);
+};
+
+app.onEnable = (userId, orgId) => {
+  app.log.info(`enabled ${userId} ${orgId}`);
+};
+
+app.onDisable = (userId, orgId) => {
+  app.log.info(`disabled ${userId} ${orgId}`);
+};
+
 (async () => {
   try {
     await app.start(
