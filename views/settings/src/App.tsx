@@ -28,7 +28,7 @@ function App() {
         variant='outlined'
         onClick={() => {
           window.Kustomer.command.run(
-            'shopify_sdk--create-order',
+            'shopify_sdk.app.shopify_sdk--create-order',
             { body: { hello: 'world' } },
             () => {
 
