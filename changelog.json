@@ -5,5 +5,6 @@
   "0.0.3": "change url",
   "0.0.4": "add proper roles",
   "0.0.5": "add find kobject for updates",
-  "0.0.6": "add order create"
+  "0.0.6": "add order create",
+  "0.0.7": "add lifecycle hooks for testing"
 }
