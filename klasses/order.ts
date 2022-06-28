@@ -7,79 +7,79 @@ export const order = {
     metadata: {
       properties: {
         orderIdNum: {
-            displayName: 'Order Id'
+          displayName: 'Order Id'
         },
         orderStatusStr: {
-            displayName: 'Order Status'
+          displayName: 'Order Status'
         },
         billingStatusStr: {
-            displayName: 'Billing Status'
+          displayName: 'Billing Status'
         },
         orderNumberStr: {
-            displayName: 'Order Number'
+          displayName: 'Order Number'
         },
         orderCreatedAt: {
-            displayName: 'Order Created'
+          displayName: 'Order Created'
         },
         orderUpdatedAt: {
-            displayName: 'Order Updated'
+          displayName: 'Order Updated'
         },
         specialInstructionsStr: {
-            displayName: 'Special Instructions'
+          displayName: 'Special Instructions'
         },
         totalPriceNum: {
-            displayName: 'Total Price'
+          displayName: 'Total Price'
         },
         shippingAddressStr: {
-            displayName: 'Shipping Address'
+          displayName: 'Shipping Address'
         },
         shippingCityStr: {
-            displayName: 'Shipping City'
+          displayName: 'Shipping City'
         },
         shippingStateStr: {
-            displayName: 'Shipping State'
+          displayName: 'Shipping State'
         },
         shippingZipStr: {
-            displayName: 'Shipping Zip Code'
+          displayName: 'Shipping Zip Code'
         },
         shippingCountryStr: {
-            displayName: 'Shipping Country'
+          displayName: 'Shipping Country'
         },
         shipmentStatusStr: {
-            displayName: 'Shipment Status'
+          displayName: 'Shipment Status'
         },
         skusTxt: {
           displayName: 'Product SKU\'s'
         },
         paymentSummaryStr: {
-            displayName: 'Payment Summary'
+          displayName: 'Payment Summary'
         },
         trackingNumberStr: {
-            displayName: 'Tracking Number'
+          displayName: 'Tracking Number'
         },
         orderTagsStr: {
-            displayName: 'Order Tags'
+          displayName: 'Order Tags'
         },
         customerTagsStr: {
-            displayName: 'Customer Tags'
+          displayName: 'Customer Tags'
         },
         shopNameStr: {
-            displayName: 'Shop Name'
+          displayName: 'Shop Name'
         },
         orderStatusUrl: {
-            displayName: 'Order Status Link'
+          displayName: 'Order Status Link'
         },
         hasBeenCancelledBool: {
-            displayName: 'Order Cancelled'
+          displayName: 'Order Cancelled'
         },
         hasBeenRefundedBool: {
-            displayName: 'Order Refunded'
+          displayName: 'Order Refunded'
         },
         localeStr: {
-            displayName: 'Locale'
+          displayName: 'Locale'
         },
         presentmentCurrencyStr: {
-            displayName: 'Currency Type'
+          displayName: 'Currency Type'
         }
       }
     }
